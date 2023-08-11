@@ -2,6 +2,7 @@ import styled from "styled-components"
 import { BiExit } from "react-icons/bi"
 import { Link } from "react-router-dom"
 import { AiOutlineMinusCircle, AiOutlinePlusCircle } from "react-icons/ai"
+
 import { useContext } from "react"
 import { UserContext } from "../Contex/UserContext"
 import { useEffect } from "react"
@@ -20,7 +21,7 @@ const navigate = useNavigate()
 
 function Logout(){
   localStorage.removeItem('user')
-  axios.post(`${import.meta.env.VITE_API_URL}/logout`)
+  axios.post("http://localhost:5000/logout")
   .then(() => {
     navigate('/')
   })
@@ -38,7 +39,7 @@ const config = {
 
   useEffect(()=>{
   
-    axios.get(`${import.meta.env.VITE_API_URL}/home`,config)
+    axios.get("http://localhost:5000/home",config)
     .then(res =>{
       fluxoCaixa =res.data
       

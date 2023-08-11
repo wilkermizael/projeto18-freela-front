@@ -3,7 +3,6 @@ import styled from "styled-components"
 import HomePage from "./pages/HomePage"
 import SignInPage from "./pages/SignInPage"
 import SignUpPage from "./pages/SignUpPage"
-import TransactionsPage from "./pages/TransactionPage"
 import UserProvider from "./Contex/UserContext"
 import TokenProvider from "./Contex/TokenContext"
 
@@ -17,10 +16,9 @@ export default function App() {
           <TokenProvider>
             <UserProvider>
             <Routes>
-              <Route path="/" element={<SignInPage />} />
+              <Route path="/signin" element={<SignInPage />} />
               <Route path="/cadastro" element={<SignUpPage />} />
               <Route path="/home" element={<HomePage />} />
-              <Route path="/nova-transacao/:tipo" element={<TransactionsPage />} />
             </Routes>
             </UserProvider>
         </TokenProvider>
