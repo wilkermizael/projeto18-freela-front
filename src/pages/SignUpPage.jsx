@@ -9,20 +9,26 @@ export default function SignUpPage() {
   const [nome,setNome] = useState('')
   const [email,setEmail] = useState('')
   const [senha,setSenha] = useState('')
+  const [phone,setPhone] = useState('')
+  const [cpf,setCpf] = useState('')
   const [confirmSenha, setConfirmSenha] = useState('')
   const navigate = useNavigate()
   function enviarCadastro(event){
     event.preventDefault();
    
       let dadosCadastro = {
-        nome:nome,
-        senha:senha,
-        email:email
+        name:nome,
+        email:email,
+        phone:phone,
+        cpf:cpf,
+        password:senha
+        
       }
       if(senha === confirmSenha){
-        
-        axios.post("http://localhost:5000/cadastro", dadosCadastro)
+        console.log(dadosCadastro)
+        axios.post("http://localhost:5001/cadastro", dadosCadastro)
         .then(() => navigate('/')) 
+        //.catch((error) => alert(error.response.data))
         .catch((error) => alert(error.response.data))
 
       }else{
@@ -38,9 +44,11 @@ export default function SignUpPage() {
       <form onSubmit={enviarCadastro}>
         
         <MyWalletLogo />
-        <input data-test='name' placeholder="Nome" type="text" value={nome} onChange={e =>setNome( e.target.value)}/>
-        <input data-test='email' placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
-        <input data-test='password' placeholder="Senha" type="password" autocomplete="new-password" value={senha} onChange={e => setSenha(e.target.value)}/>
+        <input  placeholder="Nome" type="text" value={nome} onChange={e =>setNome( e.target.value)}/>
+        <input  placeholder="E-mail" type="email" value={email} onChange={e => setEmail(e.target.value)}/>
+        <input  placeholder="Phone" type="phone" value={phone} onChange={e => setPhone(e.target.value)}/>
+        <input  placeholder="CPF" type="cpf" value={cpf} onChange={e => setCpf(e.target.value)}/>
+        <input  placeholder="Senha" type="password" autocomplete="new-password" value={senha} onChange={e => setSenha(e.target.value)}/>
         <input data-test='conf-password' placeholder="Confirme a senha" type="password" autocomplete="new-password" value={confirmSenha} onChange={e => setConfirmSenha(e.target.value)}/>
         <button data-test='sign-up-submit'>Cadastrar</button>
   

@@ -35,7 +35,7 @@ export default function SignInPage() {
       .catch((error) => {
         if(!token){
           alert(error.response.data)
-          navigate('/')
+          navigate('/signup')
         }else{
           alert(error.response.data)
         }
