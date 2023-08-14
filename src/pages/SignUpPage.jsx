@@ -26,7 +26,7 @@ export default function SignUpPage() {
       }
       if(senha === confirmSenha){
         console.log(dadosCadastro)
-        axios.post("http://localhost:5001/cadastro", dadosCadastro)
+        axios.post("https://projeto18-freela-api.onrender.com/cadastro", dadosCadastro)
         .then(() => navigate('/')) 
         //.catch((error) => alert(error.response.data))
         .catch((error) => alert(error.response.data))

@@ -39,7 +39,7 @@ const config = {
 
   useEffect(()=>{
   
-    axios.get("http://localhost:5000/home",config)
+    axios.get("https://projeto18-freela-api.onrender.com/home",config)
     .then(res =>{
       fluxoCaixa =res.data
       

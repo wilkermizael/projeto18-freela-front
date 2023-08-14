@@ -22,7 +22,7 @@ export default function SignInPage() {
       senha:senhaLogin
     }
       
-      axios.post("http://localhost:5000/signin", dadosLogin)
+      axios.post("https://projeto18-freela-api.onrender.com/signin", dadosLogin)
       .then(resposta => {
         
           const {nome, token, _id} = resposta.data
